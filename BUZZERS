@@ -1,0 +1,34 @@
+
+
+int longitud = 15;
+char caracter;
+                                        char notas [] = "ccggaagffeeddc";
+int pulsacion [] = {1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 4};
+char nombres[] = {'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C'};
+int tonos [] = {523, 587, 659, 698, 783, 880, 98, 1047};
+int tempo = 15;
+void setup() {
+  pinMode(3, OUTPUT);
+Serial.begin(9600);
+}
+
+void loop() {
+  int i;
+  caracter =Serial.read();
+  
+if (caracter != -1){
+  playNota[caracter];
+}
+}
+void playNota(char nota){
+int i;
+for(i=0;i<8;i++){
+  if (nombres[i] == nota){
+    tone(3,tonos[i]);
+    delay(500);
+    noTone(3);
+  }
+}
+
+  
+}
