@@ -1,0 +1,45 @@
+#include <SoftwareSerial.h>
+
+SoftwareSerial bt (2, 3);
+const byte led = 5;
+const byte led2 =11;
+const byte motor =6;
+const byte motor1 = 10;
+int A;
+int velocidad2;
+int velocidad;
+void setup() {
+
+  bt.begin(9600);
+  pinMode(led, OUTPUT);
+  pinMode(motor1, OUTPUT);
+  pinMode(motor, OUTPUT);
+}
+
+void loop() {
+
+  while (bt.available() > 0) {
+velocidad2 =bt.parseInt();
+velocidad =bt.parseInt();
+
+    if (bt.read() == '\n'){
+      
+      analogWrite(motor1,velocidad2);
+      analogWrite(led,velocidad2);
+      analogWrite(led2,velocidad);
+      analogWrite(motor,velocidad);
+    
+}
+    else{
+      velocidad =0;
+      velocidad2= 0;
+    }
+  }
+  }
+  
+ 
+
+
+
+
+//by eduar :3
